@@ -26,7 +26,7 @@ class App extends Component {
     console.log(parsedContacts);
 
     if (parsedContacts) {
-      this.setState({ localContacts: parsedContacts });
+      this.setState({ contacts: parsedContacts });
     }
   }
 
@@ -41,8 +41,8 @@ class App extends Component {
     }
   }
 
-  handleSubmit = (name, number, id) => {
-    // console.log(this.state.contacts);
+  handleSubmit = (name, number) => {
+    console.log(this.state.contacts);
     const newContact = {
       id: shortid.generate(),
       name,
@@ -80,6 +80,7 @@ class App extends Component {
       contact.name.toLowerCase().includes(normolizedFilter),
     );
   };
+
   render() {
     const contactsResults = this.onFilterName();
     return (
